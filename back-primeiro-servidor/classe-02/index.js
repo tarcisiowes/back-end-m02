@@ -23,3 +23,17 @@ const alunos = [
     }
 ];
 
+const alunosResumido= []
+
+for(let i = 0; i < alunos.length; i++) {
+
+    const { nome, idade, email, curso } = alunos[i];
+
+    alunosResumido.push({nome, 
+    idade, 
+    email, 
+    curso})
+
+}
+
+console.log(alunosResumido);

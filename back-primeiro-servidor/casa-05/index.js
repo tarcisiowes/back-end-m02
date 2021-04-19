@@ -26,4 +26,25 @@ app.get("/remover", (req, res) => {
     }
 });
 
+app.get("/adicionar", (req, res) => {
+
+    // add  
+    if (!Number(req.query.indice)) {
+        jogadores.push(req.query.nome)
+        res.send(jogadores);
+        return
+    } else if(Number(req.query.indice) < 0 || Number(req.query.indice) === jogadores.length+1) {
+
+        res.send(`O índice informado (${req.query.indice}) não existe no array. Novo jogador não adicionado.`);
+        return
+
+    } else {
+
+        jogadores.splice(Number(req.query.indice), 0, req.query.nome)
+        res.send(jogadores);
+        
+    }
+     
+});
+
 app.listen(8000);

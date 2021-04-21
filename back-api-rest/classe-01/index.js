@@ -34,5 +34,24 @@ app.post("/convidados", (req, res) => {
 
 });
 
+//DELETE
+
+app.delete("/convidados", (req, res) => {
+    
+    if(convidados.includes(req.query.nome)) {
+        const indice = convidados.indexOf(req.query.nome)
+        convidados.splice(indice,1)
+        res.json({
+            "mensagem": "Convidado removido."
+        })
+    } else {
+        res.json({
+            "mensagem": "O nome do convidado a ser removido não existe na lista. Nenhum convidado foi removido."
+        });        
+        
+    }
+
+});
+
 
 app.listen(8000);

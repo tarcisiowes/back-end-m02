@@ -2,12 +2,7 @@ const express = require("express")
 const app = express()
 app.use(express.json())
 
-const ctrlDeImoveis = require("./controladores/imoveis")
-
-
-app.get("/imoveis", ctrlDeImoveis.get)
-
-app.get("/imoveis/:numero", ctrlDeImoveis.getPorId)
-
+const roteador = require("./roteador")
+app.use(roteador)
 
 app.listen(8000);

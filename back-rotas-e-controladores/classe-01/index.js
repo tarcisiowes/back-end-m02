@@ -1,20 +1,13 @@
 const express = require("express")
-
 const app = express()
+app.use(express.json())
 
-const { imoveis } = require("./dados/imoveis");
+const ctrlDeImoveis = require("./controladores/imoveis")
 
 
-app.get("/imoveis", (req, res) => {
+app.get("/imoveis", ctrlDeImoveis.get)
 
-    res.json(imoveis)
-})
-
-app.get("/imoveis/:numero", (req, res) => {
-    
-
-    res.json(imoveis[req.params.numero-1])
-})
+app.get("/imoveis/:numero", ctrlDeImoveis.getPorId)
 
 
 app.listen(8000);

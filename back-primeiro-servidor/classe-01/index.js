@@ -9,3 +9,8 @@ const pessoa = {
     ]
 };
 
+const { nome, idade, ... outros } = pessoa;
+
+console.log(nome);
+console.log(idade);
+console.log(outros);
